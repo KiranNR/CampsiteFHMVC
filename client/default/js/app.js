@@ -5,7 +5,7 @@ var sync;
 $(document).ready(function() {
   sync = $fh.sync;
 
-  //$("[rel='popover']").popover();
+  $("[rel='popover']").popover();
 
   //Bind tab events
   $('a[data-toggle="tab"]').on('shown', function (e) {
