@@ -52,7 +52,23 @@ sync.init(dataset_id, {}, function() {
 });
 
 exports.sayHello = function(params, callback) {
+
+var mysql = require('mysql'); 
+
+var connection = mysql.createConnection({
+host : 'cloudcamp.cfp6lld7igql.us-east-1.rds.amazonaws.com',
+user : 'dave',
+password : 'deepblue',
+database : 'campsite'
+});
+connection.connect();
+var output, eventData ;
+  connection.query("select * from Event",
+    function(err, results, fields) {
+      eventData = results;
+    }
+
   return callback(null, {
-    say: "Hello from the Cloud"
+    say: eventData
   });
 };
