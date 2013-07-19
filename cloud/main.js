@@ -66,10 +66,11 @@ connection.connect();
   connection.query("select * from Event",
     function(err, results, fields) {
       eventData = results;
+      return callback(null, {
+    say: eventData
+  });
     }
   );
 
-  return callback(null, {
-    say: eventData
-  });
+  
 };
