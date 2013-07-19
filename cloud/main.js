@@ -65,6 +65,7 @@ connection.connect();
  var output, eventData ;
   connection.query("select * from Event",
     function(err, results, fields) {
+    alert("1234");
       eventData = results;
       return callback(null, {
     say: eventData
