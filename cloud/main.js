@@ -51,3 +51,8 @@ sync.init(dataset_id, {}, function() {
   sync.removeCollision(dataset_id, dataHandler.removeCollision);
 });
 
+exports.sayHello = function(params, callback) {
+  return callback(null, {
+    say: "Hello from the Cloud"
+  });
+};
