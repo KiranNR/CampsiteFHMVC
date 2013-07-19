@@ -17,7 +17,7 @@ $fh.act({
 }, function(res) {
   alert("Cloud says : " + JSON.stringify(res.say));
 }, function(msg, params) {
-  alert('An error occured: ' + msg);
+  alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
 });
     register.init();
     //syncAdmin.init();
