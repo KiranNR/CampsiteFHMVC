@@ -62,11 +62,12 @@ password : 'deepblue',
 database : 'campsite'
 });
 connection.connect();
-var output, eventData ;
+ var output, eventData ;
   connection.query("select * from Event",
     function(err, results, fields) {
       eventData = results;
     }
+  );
 
   return callback(null, {
     say: eventData
