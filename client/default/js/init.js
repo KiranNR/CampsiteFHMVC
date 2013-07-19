@@ -12,7 +12,13 @@ $(document).ready(function() {
 	 var mainPageView = getView("mainPage");
   
 	 sync = $fh.sync;
-
+$fh.act({
+  act: 'sayHello'
+}, function(res) {
+  alert("Cloud says : " + JSON.stringify(res.say));
+}, function(msg, params) {
+  alert('An error occured: ' + msg);
+});
     register.init();
     //syncAdmin.init();
   
