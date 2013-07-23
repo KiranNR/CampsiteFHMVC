@@ -51,22 +51,10 @@ sync.init(dataset_id, {}, function() {
   sync.removeCollision(dataset_id, dataHandler.removeCollision);
 });
 
-exports.sayHello = function(params, callback) {
-
-//var mysql = require('mysql'); 
-
-/*var connection = mysql.createConnection({
-host : 'cloudcamp.cfp6lld7igql.us-east-1.rds.amazonaws.com',
-user : 'dave',
-password : 'deepblue',
-database : 'campsite'
-});
-connection.connect();*/
- var output, eventData ;
- 
-  
-     return callback(null, {
-    say: eventData
-  });
+exports.getConfig = function(params, callback) {
+  console.log("In getConfig() call");
+  var cfg = require("config.js");
+  return callback(null, {config: cfg.config});
+};
   
 };

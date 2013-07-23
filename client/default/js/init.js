@@ -11,14 +11,7 @@ $(document).ready(function() {
 		// go to the first view: mainPage
 	 var mainPageView = getView("mainPage");
   
-	 sync = $fh.sync;
-$fh.act({
-  act: 'sayHello'
-}, function(res) {
-  alert("Cloud says : " + JSON.stringify(res.say));
-}, function(msg, err) {
-  alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
-});
+	  sync = $fh.sync;
     register.init();
     //syncAdmin.init();
   
