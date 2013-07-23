@@ -28,8 +28,26 @@ init: function() {
       
        var dataItem = {
         "first_name" : "Kronicsteveen",
-        "uid": "123"
+        "last_name": "Steve"
       };
+      
+      /*sync.doCreate(datasetId, dataItem, function(res) {
+        console.log('Create item success');
+      }, function(code, msg) {
+        alert('An error occured while creating data : (' + code + ') ' + msg);
+      });
+      
+        sync.doRead(datasetId, uid, function(res) {
+        var data = res.data;
+        // Update the name field with the updated value from the text box
+        alert(data);
+        data.name = name;
+        data.recordDelay = self.recordDelayVal;
+
+      }, function(code, msg) {
+        alert('Unable to read row for updating : (' + code + ') ' + msg);
+      });*/
+      
       return ;
       //alert("End"); 
     },
@@ -47,6 +65,34 @@ init: function() {
     }
   }
       },
+      
+ 
+    handleListSuccess: function(res) {
+      var tableData = [];
+      // Iterate over the dataset to create a record structure which is suitable for the jQuery Data table
+      // we are using to display the data (i.e a 2d array)
+    
+      var controls = [];
+      controls.push('<button class="btn edit btn-small"><i class="icon-pencil"></i> Edit</button>&nbsp;');
+      controls.push('<button class="btn delete btn-small"><i class="icon-trash"></i> Delete</button>&nbsp;');
+
+      for( i in res ) {
+        var row = [];
+        var rec = res[i];
+        row.push(i);
+        row.push(rec.data.name);
+        row.push(moment(rec.data.created).format('YYYY-MM-DD HH:mm:ss'));
+        row.push(controls.join(""));
+        tableData.push(row);
+      }
+
+      //self.reloadTable(tableData);
+    },
+
+    handleListFailure: function(code, msg) {
+      alert('An error occured while listing data : (' + code + ') ' + msg);
+    },
+     
   
 	display : function() {
 	//alert("called");

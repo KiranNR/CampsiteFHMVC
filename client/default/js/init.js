@@ -16,7 +16,7 @@ $fh.act({
   act: 'sayHello'
 }, function(res) {
   alert("Cloud says : " + JSON.stringify(res.say));
-}, function(msg, params) {
+}, function(msg, err) {
   alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
 });
     register.init();
