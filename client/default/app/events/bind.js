@@ -1,5 +1,5 @@
 function bindEvents(){
-	$("#loginBtn").bind("click",function(){
+	$("#registerBtn").bind("click",function(){
 		//userAuth.login();
 		register.display();
 	});
@@ -8,7 +8,11 @@ function bindEvents(){
 		alert("submituserclick");
 		//register.init();
 		register.submitData();
+		alert('Called herer34');
+		//register.logout();
+		userAuth.logout();
 	});
+	
 	$(".logout").bind("click",function(){
 		userAuth.logout();
 	});

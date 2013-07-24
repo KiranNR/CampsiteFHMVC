@@ -1,8 +1,51 @@
 var register = {
 
-init: function() {
+init: function(res,resU) {
       //alert("init register called");
-    
+      var listObj = res.say;
+      //alert('Got response from cloud IN Register:' + JSON.stringify(listObj));
+      
+      var parsedJSON = eval('('+res.say+')');
+      //alert('List object count is'+parsedJSON.list[0].fields.name);
+      var eventName = parsedJSON.list[0].fields.name;
+      var eventDate = parsedJSON.list[0].fields.event_date;
+      var eventTime = parsedJSON.list[0].fields.event_time;
+      var eventLocation =  parsedJSON.list[0].fields.location;
+      
+      
+      //document.getElementById('event_data_name').innerHtml(name);
+      document.getElementById('event_data_name').innerHTML= eventName;
+      document.getElementById('event_data_eventDate').innerHTML= eventDate;
+      document.getElementById('event_data_eventTime').innerHTML= eventTime;
+      document.getElementById('event_data_eventLocation').innerHTML= eventLocation;
+      
+      // Nowe we have to generate Attendee List of User
+      var parsedJSONUser = eval('('+resU.say+')');
+     // alert(JSON.stringify(parsedJSONUser));
+      // User Data
+      var firstName = '';
+      var lastName = '';
+      var website = '';
+      var blog = '';
+      
+      var html = '';
+      var userCount = parsedJSONUser.count;
+      
+      if(userCount > 0) {
+        // Now fetch The Data 
+        for(i=0;i<userCount;i++) {
+            firstName = parsedJSONUser.list[i].fields.first_name;
+            lastName = parsedJSONUser.list[i].fields.last_name;
+            website = parsedJSONUser.list[i].fields.website;
+            blog =  parsedJSONUser.list[i].fields.blog;
+          alert(firstName);
+            html += '<div> <a href="#" target="_blank"> <h3>'+firstName +'&nbsp;'+lastName + '</h3></a>';
+            html += '<p> Website:<a href="'+website+'"> '+website+'</a>';
+            html += '</p> <p> Blog: <a href="'+blog+'"> '+blog+'</a></p></div>';
+             
+        }
+        document.getElementById('homepageUserListing').innerHTML = html;
+      }
       // Ensure UI is set up correctly
       /*$('#updateBtn').attr('disabled', 'disabled');
 
@@ -14,7 +57,7 @@ init: function() {
       $('#clearNotificationsBtn').unbind().click(self.clearNotifications);
       */
       // Initialise the Sync Service. See http://docs.feedhenry.com/v2/api_js_client_api.html#$fh.sync for details on initialisation options
-      sync.init({
+     /* sync.init({
         //"sync_frequency": 5,
         "do_console_log" : true
       });
@@ -95,7 +138,7 @@ init: function() {
      
   
 	display : function() {
-	//alert("called");
+
 		//var username, pwd, usernameElement, passwordElement;
 		//define variables
 		//usernameElement = document.getElementById("username");
@@ -121,36 +164,69 @@ init: function() {
 		document.getElementById("register").style.display="block";
 		
 		changeView("register");
-		/*users.userValidate(username, pwd, function(res) {
-			//if(res === true) {
-				document.getElementById("name").innerHTML = username;
-				return changeView("logged");
-			} else {
-				alert("Invalid username or password");
-			}
-		});*/
+		
 		
 	},
 	
 	submitData : function() {  
-      alert("Data is submitted");
-      var created = new Date().getTime();
+            
+      var firstName = document.getElementById('first_name').value;
+      var lastName = document.getElementById('last_name').value;
+      var website = document.getElementById('website').value;
+      var blog = document.getElementById('blog').value;
       
-      var dataItem = {
-        "first_name" : "Kronicsteve",
-        "created" : created,
-      };
+      $fh.act({
+                "act": "insertUser",
+                // my cloud function name to call
+                "req": {
+                  "first_name": firstName, // send this value to the cloud
+                  "last_name" : lastName,
+                  "website" : website,
+                  "blog":blog
+                }
+              }, function(resUser) {
+                alert('Response From Cloud Code for Insrted user'+ JSON.stringify(resUser));                
+              },
+              function(msg, err) {
+                // An error occured during the cloud call. Alert some debugging information
+                alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+      });
+      
+      return true;
+      
+    /*  $fh.db({
+  "act": "create",
+  "type": "myFirstEntity",
+  "fields": {
+    "firstName": "Joe",
+    "lastName": "Bloggs",
+    "address1": "22 Blogger Lane",
+    "address2": "Bloggsville",
+    "country": "Bloggland",
+    "phone": "555-123456"
+  }
+}, function(err, data) {
+  if (err) {
+    console.log("Error " + err)
+  } else {
+    console.log(JSON.stringify(data))
+    }
      
-      sync.doCreate(datasetId, dataItem, function(res) {
+  }
+  ) */
+},
+    
+/*      sync.doCreate(datasetId, dataItem, function(res) {
         alert("Data is submitted Agaun");
      
       }, function(code, msg) {
         alert('An error occured while creating data : (' + code + ') ' + msg);
       });
-  },
+  }, */
  
   
 	logout : function() {
+	 alert('called');
 		changeView("mainPage");
 	}
 }

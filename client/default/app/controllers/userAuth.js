@@ -19,6 +19,7 @@ var userAuth = {
 		});
 	},
 	logout : function() {
-		changeView("mainPage");
+	  alert('Logut clll'); 
+		return changeView("mainPage");
 	}
 }
