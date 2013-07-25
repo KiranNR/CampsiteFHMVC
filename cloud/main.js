@@ -106,7 +106,7 @@ $fh.db({
 exports.userList = function(params, callback) {
 
 $fh.db({
-  "act": "list",
+  "act": "deleteall",
   "type": "user",
 
 }, function(err, data) {
@@ -147,6 +147,8 @@ $fh.db({
     });      
   }
 });
+
+
 };
 
 
