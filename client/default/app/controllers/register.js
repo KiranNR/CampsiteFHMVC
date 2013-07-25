@@ -174,7 +174,7 @@ init: function(res,resU) {
       var lastName = document.getElementById('last_name').value;
       var website = document.getElementById('website').value;
       var blog = document.getElementById('blog').value;
-      //alert('call Submit Function'+firstName);
+      alert('call Submit Function'+firstName);
       
       $fh.act({
                 "act": "insertUser",
@@ -186,8 +186,7 @@ init: function(res,resU) {
                   "blog":blog
                 }
               }, function(resUser) {
-                alert('Date is Inserted Sucessfully');        
-                        
+                alert('Date is Inserted Sucessfully');                                
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information

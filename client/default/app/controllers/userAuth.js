@@ -28,15 +28,14 @@ var userAuth = {
     var userData ; 
       // User List
       $fh.act({
-                "act": "userList",
-                
+                "act": "userList",                
               }, function(resUser) {
                 //alert('Response From Cloud Code for user'+ JSON.stringify(resUser));
                 userData = resUser;
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
-                alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+                alert('Cloud call failed for userList with error:' + msg + '. Error properties:' + JSON.stringify(err));
       });
 
       // Display Event on HomePage
@@ -51,7 +50,7 @@ var userAuth = {
               register.init(resEvent,userData);
          }, function(msg, err) {
             // An error occured during the cloud call. Alert some debugging information
-            alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+            alert('Cloud call failed for eventList with error:' + msg + '. Error properties:' + JSON.stringify(err));
         });
         
   },
