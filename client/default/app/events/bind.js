@@ -5,12 +5,11 @@ function bindEvents(){
 	});
 	$("#submitUser").bind("click",function(){
 		//userAuth.login();
-		//alert("submituserclick");
+		alert("submituserclick");
 		//register.init();
 		register.submitData();
-		//alert('Called herer34');
-		//register.logout();
-		register.logout();
+		userAuth.init();
+		
 	});
 	
 	$(".logout").bind("click",function(){

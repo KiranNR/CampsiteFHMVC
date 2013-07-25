@@ -38,6 +38,7 @@ init: function(res,resU) {
             lastName = parsedJSONUser.list[i].fields.last_name;
             website = parsedJSONUser.list[i].fields.website;
             blog =  parsedJSONUser.list[i].fields.blog;
+          
             html += '<div> <a href="#" target="_blank"> <h3>'+firstName +'&nbsp;'+lastName + '</h3></a>';
             html += '<p> Website:<a href="'+website+'"> '+website+'</a>';
             html += '</p> <p> Blog: <a href="'+blog+'"> '+blog+'</a></p></div>';
@@ -89,8 +90,8 @@ init: function(res,resU) {
       }, function(code, msg) {
         alert('Unable to read row for updating : (' + code + ') ' + msg);
       });*/
-      
-      return ;
+    
+      //changeView('mainPage');
       //alert("End"); 
     },
 
@@ -184,7 +185,7 @@ init: function(res,resU) {
                   "blog":blog
                 }
               }, function(resUser) {
-                //alert('Response From Cloud Code for Insrted user'+ JSON.stringify(resUser));                
+                alert('Response From Cloud Code for Insrted user'+ JSON.stringify(resUser));                
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
@@ -225,7 +226,7 @@ init: function(res,resU) {
  
   
 	logout : function() {
-	 //alert('called');
+	 alert('called');
 		changeView("mainPage");
 	}
 }
