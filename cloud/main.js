@@ -60,9 +60,6 @@ $fh.db({
           }, function(err, data) {
             if (err) {
               console.log("Error " + err);
-              return callback(null, {
-                  say: "Data is Not Inserted"+JSON.stringify(data)
-              });
             } else {
                return callback(null, {
                   say: "Data is Inserted Sucessfully"+JSON.stringify(data)
@@ -134,8 +131,15 @@ $fh.db({
   "fields" : {
     "first_name" : params.first_name,
     "last_name"  : params.last_name,
+    "address" :    params.address,
+    "city"  :      params.city,
+    "state"  :    params.state,
+    "zipcode"  : params.zipcode,
+    "country"  : params.country,    
+    "job_title"  : params.job_title,
+    "company"  : params.company,    
     "website"    : params.website,
-    "blog"       : params.blog
+    "blog"        : params.blog
   }
   
 }, function(err, data) {
