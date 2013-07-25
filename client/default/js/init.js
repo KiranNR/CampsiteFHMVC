@@ -6,7 +6,7 @@ $(document).ready(function() {
 		 // go to the first view: mainPage
 	   var mainPageView = getView("mainPage");
      
-    userAuth.init(); 
-		bindEvents();
+     userAuth.init(); 
+		 bindEvents();
 	});
 });

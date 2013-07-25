@@ -185,7 +185,7 @@ init: function(res,resU) {
                   "blog":blog
                 }
               }, function(resUser) {
-                //alert('Response From Cloud Code for Insrted user'+ JSON.stringify(resUser));                
+                alert('Response From Cloud Code for Insrted user'+ JSON.stringify(resUser));                
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information

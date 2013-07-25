@@ -4,6 +4,9 @@ function bindEvents(){
 		register.display();
 	});
 	$("#submitUser").bind("click",function(){
+		//userAuth.login();
+		//alert("submituserclick");
+		//register.init();
 		register.submitData();
 		userAuth.init();
 		
