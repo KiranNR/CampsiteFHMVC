@@ -103,9 +103,8 @@ $fh.db({
 
 
 exports.userList = function(params, callback) {
-
 $fh.db({
-  "act": "list",
+  "act": "deleteall",
   "type": "user"
 
 }, function(err, data) {
@@ -113,7 +112,7 @@ $fh.db({
     console.log("Error " + err);
   } else {  
     // if list is Empty Create New record
-    console.log('data couunt'+data.count);
+    console.log('data count'+data.count);
     return callback(null, {
                   say: JSON.stringify(data)
               });      
