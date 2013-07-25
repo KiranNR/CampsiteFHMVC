@@ -181,14 +181,12 @@ init: function(res,resU) {
       var company = document.getElementById('company').value;            
       var website = document.getElementById('website').value;
       var blog = document.getElementById('blog').value;
-      alert('call Submit Function'+firstName);
-      
-      
+       
       $fh.act({
                 "act": "insertUser",
                 // my cloud function name to call
-                "req": {
-                
+                "req": {            
+                   
                   "first_name": firstName, // send this value to the cloud
                   "last_name" : lastName,
                   "address"   : address,
@@ -202,7 +200,7 @@ init: function(res,resU) {
                   "blog"      : blog
                 }
               }, function(resUser) {
-                alert('Date is Inserted Sucessfully');                                
+                alert('Data is Inserted Sucessfully'+JSON.stringify(resUser));                                
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
