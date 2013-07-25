@@ -45,7 +45,7 @@ $fh.db({
   } else {
   
    // if list is Empty Create New record
-   console.log('eventList Data'+data.count);
+   console.log('eventList date'+data.count);
    if(data.count === 0){
         $fh.db({
             "act": "create",
