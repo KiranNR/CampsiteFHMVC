@@ -35,7 +35,7 @@ var userAuth = {
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
-                alert('Cloud call failed for userList with error:' + msg + '. Error properties:' + JSON.stringify(err));
+                //alert('Cloud call failed for userList with error:' + msg + '. Error properties:' + JSON.stringify(err));
       });
 
       // Display Event on HomePage
