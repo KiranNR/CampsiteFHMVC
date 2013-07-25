@@ -30,7 +30,7 @@ var userAuth = {
       $fh.act({
                 "act": "userList",                
               }, function(resUser) {
-                alert('Response From Cloud Code for user'+ JSON.stringify(resUser));
+              //  alert('Response From Cloud Code for user'+ JSON.stringify(resUser));
                 userData = resUser;
               },
               function(msg, err) {
@@ -44,7 +44,7 @@ var userAuth = {
         // my cloud function name to call        
       }, function(resEvent) {
             // Cloud call was successful. Alert the response
-                alert('Response From Cloud Code for event'+ JSON.stringify(resEvent));
+            //alert('Response From Cloud Code for event'+ JSON.stringify(resEvent));
             
             register.init(resEvent,userData);
          }, function(msg, err) {
