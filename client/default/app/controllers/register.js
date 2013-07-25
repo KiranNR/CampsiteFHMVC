@@ -174,6 +174,7 @@ init: function(res,resU) {
       var lastName = document.getElementById('last_name').value;
       var website = document.getElementById('website').value;
       var blog = document.getElementById('blog').value;
+      alert('call Submit Function'+firstName);
       
       $fh.act({
                 "act": "insertUser",
@@ -189,7 +190,7 @@ init: function(res,resU) {
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
-                alert('Cloud call failed with error:' + msg + '. Error properties:' + JSON.stringify(err));
+                alert('Cloud call failed with Error:' + msg + '. Error properties:' + JSON.stringify(err));
       });
       
       return true;
