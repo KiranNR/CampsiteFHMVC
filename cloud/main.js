@@ -45,7 +45,7 @@ $fh.db({
   } else {
   
    // if list is Empty Create New record
-   console.log('data couunt'+data.count);
+   console.log('eventList Data'+data.count);
    if(data.count === 0){
         $fh.db({
             "act": "create",
@@ -104,7 +104,7 @@ $fh.db({
 
 exports.userList = function(params, callback) {
 $fh.db({
-  "act": "list",
+  "act": "deleteall",
   "type": "user"
 
 }, function(err, data) {
@@ -112,7 +112,7 @@ $fh.db({
     console.log("Error " + err);
   } else {  
     // if list is Empty Create New record
-    console.log('data count'+data.count);
+    console.log('userlist data count'+data.count);
     return callback(null, {
                   say: JSON.stringify(data)
               });      
@@ -136,10 +136,10 @@ $fh.db({
   
 }, function(err, data) {
   if (err) {
-    console.log("Error " + err);
+    console.log("Insert Log Error " + err);
   } else {  
     // if list is Empty Create New record
-    console.log('data couunt'+data.count);
+    console.log('User List Insert data:'+data.count);
     return callback(null, {
           say: JSON.stringify(data)
     });      
