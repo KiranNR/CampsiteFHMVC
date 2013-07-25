@@ -186,7 +186,8 @@ init: function(res,resU) {
                   "blog":blog
                 }
               }, function(resUser) {
-                alert('Date is Inserted Sucessfully');                                
+                alert('Date is Inserted Sucessfully');        
+                        
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information

@@ -11,6 +11,7 @@
  */
 var lastView = null;
 function changeView(viewId) {
+  
 	// get next view through page id
 	var nextView = getView(viewId);
 	if(nextView.length === 0) {
