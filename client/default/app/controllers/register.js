@@ -190,7 +190,7 @@ init: function(res,resU) {
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
-                alert('Cloud call failed with Error:' + msg + '. Error properties:' + JSON.stringify(err));
+                alert('Cloud call not Sucess with Error:' + msg + '. Error properties:' + JSON.stringify(err));
       });
       
       return true;
