@@ -30,7 +30,7 @@ var userAuth = {
       $fh.act({
                 "act": "userList",                
               }, function(resUser) {
-                alert('Response From Cloud Code for user');
+                //alert('Response From Cloud Code for user');
                 userData = resUser;
               },
               function(msg, err) {

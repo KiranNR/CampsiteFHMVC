@@ -60,6 +60,9 @@ $fh.db({
           }, function(err, data) {
             if (err) {
               console.log("Error " + err);
+              return callback(null, {
+                  say: "Data is Not Inserted"+JSON.stringify(data)
+              });
             } else {
                return callback(null, {
                   say: "Data is Inserted Sucessfully"+JSON.stringify(data)
