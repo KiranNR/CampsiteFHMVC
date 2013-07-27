@@ -1,27 +1,47 @@
 var register = {
 
-init: function(res,resU) {
-      //alert("init register called");
-      var listObj = res.say;
-      //alert('Got response from cloud IN Register:' + JSON.stringify(listObj));
+
+init : function (){
+      // Display Event on HomePage
+      $fh.act({
+        "act": "eventList",
+        
+      }, function(resEvent) {
+            // Cloud call was successful. Alert the response
+            //alert('Cloud call Sucess for EventList with error:' + JSON.stringify(resEvent));
+            register.eventList(resEvent);
+         }, function(msg, err) {
+            // An error occured during the cloud call. Alert some debugging information
+            alert('Cloud call failed for EventList with error:' + msg + '. Error properties:' + JSON.stringify(err));
+        });
+        
+        // Display User List On HomePage
+        $fh.act({
+        "act": "userList",
+      }, function(resUser) {
+            // Cloud call was successful. Alert the response
+           // alert('Cloud call Sucess for userList with error:' + JSON.stringify(resUser));
+            register.userListing(resUser);
+         }, function(msg, err) {
+            // An error occured during the cloud call. Alert some debugging information
+            alert('Cloud call failed for UserList with error:' + msg + '. Error properties:' + JSON.stringify(err));
+        });
+        return true;    
+        
+},
+
+userListing: function (resUser) {
+  
+      var listObj = resUser.say;
+      //alert('Got response from cloud for user IN Register:' + JSON.stringify(listObj));
       
-      var parsedJSON = eval('('+res.say+')');
-      //alert('List object count is'+parsedJSON.list[0].fields.name);
-      var eventName = parsedJSON.list[0].fields.name;
-      var eventDate = parsedJSON.list[0].fields.event_date;
-      var eventTime = parsedJSON.list[0].fields.event_time;
-      var eventLocation =  parsedJSON.list[0].fields.location;
-      
-      
-      //document.getElementById('event_data_name').innerHtml(name);
-      document.getElementById('event_data_name').innerHTML= eventName;
-      document.getElementById('event_data_eventDate').innerHTML= eventDate;
-      document.getElementById('event_data_eventTime').innerHTML= eventTime;
-      document.getElementById('event_data_eventLocation').innerHTML= eventLocation;
-      
+     // var parsedJSON = eval('('+resUser.say+')');
+      var parsedJSONUser = eval('('+resUser.say+')');
+     
+      //alert('Call User List'+parsedJSON);
       // Nowe we have to generate Attendee List of User
-      var parsedJSONUser = eval('('+resU.say+')');
-     // alert(JSON.stringify(parsedJSONUser));
+      //var parsedJSONUser = eval('('+resUser.say+')');
+      //alert('Json Data'+parsedJSONUser);
       // User Data
       var firstName = '';
       var lastName = '';
@@ -46,53 +66,32 @@ init: function(res,resU) {
         }
         document.getElementById('homepageUserListing').innerHTML = html;
       }
-      // Ensure UI is set up correctly
-      /*$('#updateBtn').attr('disabled', 'disabled');
-
-      $('#isOnlineChk').unbind().click(self.setOnline);
-      $('#updateBtn').unbind().click(self.updateItem);
-      $('#addBtn').unbind().click(self.addItem);
-      $('#syncDelayBtn').unbind().click(self.setSyncDelay);
-      $('#recordDelayBtn').unbind().click(self.setRecordDelay);
-      $('#clearNotificationsBtn').unbind().click(self.clearNotifications);
-      */
-      // Initialise the Sync Service. See http://docs.feedhenry.com/v2/api_js_client_api.html#$fh.sync for details on initialisation options
-     /* sync.init({
-        //"sync_frequency": 5,
-        "do_console_log" : true
-      });
-
-      // Provide handler function for receiving notifications from sync service - e.g. data changed
-      sync.notify(self.handleSyncNotifications);
-
-      // Get the Sync service to manage the dataset called "myShoppingList"
-      sync.manage(datasetId, {});
-      //alert("sync sudhi");
+      return true;
       
-       var dataItem = {
-        "first_name" : "Kronicsteveen",
-        "last_name": "Steve"
-      };
-      
-      /*sync.doCreate(datasetId, dataItem, function(res) {
-        console.log('Create item success');
-      }, function(code, msg) {
-        alert('An error occured while creating data : (' + code + ') ' + msg);
-      });
-      
-        sync.doRead(datasetId, uid, function(res) {
-        var data = res.data;
-        // Update the name field with the updated value from the text box
-        alert(data);
-        data.name = name;
-        data.recordDelay = self.recordDelayVal;
+},
 
-      }, function(code, msg) {
-        alert('Unable to read row for updating : (' + code + ') ' + msg);
-      });*/
-    
-      //changeView('mainPage');
-      //alert("End"); 
+eventList: function(resEvent) {
+  
+      //alert("init register called");
+      var listObj = resEvent.say;
+      //alert('Got response from cloud IN Register:' + JSON.stringify(listObj));
+      
+      var parsedJSON = eval('('+resEvent.say+')');
+     //alert('Evet Data'+parsedJSON); 
+      //alert('List object count is'+parsedJSON.list[0].fields.name);
+      var eventName = parsedJSON.list[0].fields.name;
+      var eventDate = parsedJSON.list[0].fields.event_date;
+      var eventTime = parsedJSON.list[0].fields.event_time;
+      var eventLocation =  parsedJSON.list[0].fields.location;
+      
+      
+      //document.getElementById('event_data_name').innerHtml(name);
+      document.getElementById('event_data_name').innerHTML= eventName;
+      document.getElementById('event_data_eventDate').innerHTML= eventDate;
+      document.getElementById('event_data_eventTime').innerHTML= eventTime;
+      document.getElementById('event_data_eventLocation').innerHTML= eventLocation;
+      
+      return ;
     },
 
   handleSyncNotifications: function(notification) {

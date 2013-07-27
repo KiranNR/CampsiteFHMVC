@@ -5,8 +5,9 @@ $(document).ready(function() {
 		 changeView("mainPage");
 		 // go to the first view: mainPage
 	   var mainPageView = getView("mainPage");
-     
-     userAuth.init(); 
+     var return_value=0;
+     if(return_value===0)
+        register.init(); 
 		 bindEvents();
 	});
 });

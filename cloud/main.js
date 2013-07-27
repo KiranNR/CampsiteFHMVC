@@ -113,9 +113,9 @@ $fh.db({
     console.log("Error " + err);
   } else {  
     // if list is Empty Create New record
-    console.log('userlist data count'+data.count);
+    //console.log('userlist data count'+data.count);
     return callback(null, {
-                  say: 'User Listing Data:'+JSON.stringify(data)
+                  say: JSON.stringify(data)
               });      
   }
 });

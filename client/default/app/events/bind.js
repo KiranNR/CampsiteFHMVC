@@ -7,8 +7,11 @@ function bindEvents(){
 		//userAuth.login();
 		//alert("submituserclick");
 		//register.init();
-		register.submitData();
-		userAuth.init();
+		var rt;
+		rt = register.submitData();
+		
+		//userAuth.init();
+		//register.init();
 		
 	});
 	
