@@ -45,7 +45,7 @@ $fh.db({
   } else {
   
    // if list is Empty Create New record
-   console.log('eventList date'+data.count);
+   console.log('eventList Data'+data.count);
    if(data.count === 0){
         $fh.db({
             "act": "create",
@@ -115,7 +115,7 @@ $fh.db({
     // if list is Empty Create New record
     console.log('userlist data count'+data.count);
     return callback(null, {
-                  say: 'UserList00'+JSON.stringify(data)
+                  say: JSON.stringify(data)
               });      
   }
 });
@@ -131,13 +131,6 @@ $fh.db({
   "fields" : {
     "first_name" : params.first_name,
     "last_name"  : params.last_name,
-    "address" :    params.address,
-    "city"  :      params.city,
-    "state"  :    params.state,
-    "zipcode"  : params.zipcode,
-    "country"  : params.country,    
-    "job_title"  : params.job_title,
-    "company"  : params.company,    
     "website"    : params.website,
     "blog"        : params.blog
   }
@@ -145,9 +138,6 @@ $fh.db({
 }, function(err, data) {
   if (err) {
     console.log("Insert Log Error " + err);
-    return callback(null, {
-          say: "Cant Insert"+JSON.stringify(err)
-    });
   } else {  
     // if list is Empty Create New record
     console.log('User List Insert data:'+data.count);
