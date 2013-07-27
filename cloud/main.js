@@ -146,7 +146,7 @@ $fh.db({
   if (err) {
     console.log("Insert Log Error " + err);
     return callback(null, {
-          say: 'Cant Insert Data'+JSON.stringify(err);
+          say: "Cant Insert"+JSON.stringify(err)
     });
   } else {  
     // if list is Empty Create New record
