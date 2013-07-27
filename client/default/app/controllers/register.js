@@ -171,9 +171,9 @@ init: function(res,resU) {
 	submitData : function() {  
             
       var firstName = document.getElementById('first_name').value;
-      var lastName = document.getElementById('last_name').value;
-      var website = document.getElementById('website').value;
-      var blog = document.getElementById('blog').value;
+      var lastName =  document.getElementById('last_name').value;
+      var website =   document.getElementById('website').value;
+      var blog =      document.getElementById('blog').value;
       //alert('call Submit Function'+firstName);
       
       $fh.act({

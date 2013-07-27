@@ -115,7 +115,7 @@ $fh.db({
     // if list is Empty Create New record
     console.log('userlist data count'+data.count);
     return callback(null, {
-                  say: JSON.stringify(data)
+                  say: 'User Listing Data:'+JSON.stringify(data)
               });      
   }
 });
@@ -138,11 +138,14 @@ $fh.db({
 }, function(err, data) {
   if (err) {
     console.log("Insert Log Error " + err);
+      return callback(null, {
+          say: 'Error For Creat User'+JSON.stringify(data)
+    });
   } else {  
     // if list is Empty Create New record
     console.log('User List Insert data:'+data.count);
     return callback(null, {
-          say: JSON.stringify(data)
+          say: 'User Create Insert Data'+JSON.stringify(data)
     });      
   }
 });
