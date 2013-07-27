@@ -23,12 +23,13 @@ var userAuth = {
 	
 	document.getElementById("mainPage").style.display="block";
 	document.getElementById("register").style.display="none";
+	
 	$('link[rel=stylesheet][href~="css/layout_marketingcamp.css"]').remove();
 	// we havet to remove the css file	
     var userData ; 
       // User List
       $fh.act({
-                "act": "userList",                
+                "act": "userList",                                
               }, function(resUser) {
                 //alert('Response From Cloud Code for user');
                 userData = resUser;
@@ -41,12 +42,10 @@ var userAuth = {
       // Display Event on HomePage
       $fh.act({
         "act": "eventList",
-        // my cloud function name to call
-        "req": {
-          "key": "someValue" // send this value to the cloud
-        }
+        // my cloud function name to call       
       }, function(resEvent) {
             // Cloud call was successful. Alert the response
+            alert('Cloud call Sucess for eventList with error:' + msg + '. Error properties:' + JSON.stringify(err));        
             register.init(resEvent,userData);
          }, function(msg, err) {
             // An error occured during the cloud call. Alert some debugging information
@@ -54,6 +53,7 @@ var userAuth = {
         });
         
   },
+  
 	logout : function() {
 	  alert('Logut clll'); 
 		return changeView("mainPage");

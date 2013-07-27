@@ -90,7 +90,7 @@ init: function(res,resU) {
       }, function(code, msg) {
         alert('Unable to read row for updating : (' + code + ') ' + msg);
       });*/
-    
+      return true;
       //changeView('mainPage');
       //alert("End"); 
     },
