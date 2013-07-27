@@ -145,6 +145,9 @@ $fh.db({
 }, function(err, data) {
   if (err) {
     console.log("Insert Log Error " + err);
+    return callback(null, {
+          say: 'Cant Insert Data'+JSON.stringify(err);
+    });
   } else {  
     // if list is Empty Create New record
     console.log('User List Insert data:'+data.count);
