@@ -132,7 +132,7 @@ $fh.db({
     "first_name" : params.first_name,
     "last_name"  : params.last_name,
     "website"    : params.website,
-    "blog"        : params.blog
+    "blog"       : params.blog
   }
   
 }, function(err, data) {

@@ -186,7 +186,7 @@ init: function(res,resU) {
                   "blog":blog
                 }
               }, function(resUser) {
-                alert('Date is Inserted Sucessfully');        
+                alert('Cloud call  Sucess '+ JSON.stringify(resUser));
                         
               },
               function(msg, err) {
