@@ -188,7 +188,7 @@ eventList: function(resEvent) {
         return false;
       }
       
-      return true;
+      //return true;
       
     /*  $fh.db({
   "act": "create",
