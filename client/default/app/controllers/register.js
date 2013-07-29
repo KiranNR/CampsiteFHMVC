@@ -157,7 +157,9 @@ eventList: function(resEvent) {
         tempval = 1;
       }
 
+      
       if(tempval ===1 ) {
+      alert("Data is Submitted Sucessfully");
       $fh.act({
                 "act": "insertUser",
                 // my cloud function name to call
@@ -189,7 +191,8 @@ eventList: function(resEvent) {
         return false;
       }
       //alert("Rturn value"+retVal)
-      return retVal;
+        return retVal;
+        
       
     /*  $fh.db({
   "act": "create",
