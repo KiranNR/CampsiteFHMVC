@@ -143,7 +143,7 @@ eventList: function(resEvent) {
       
       var website =   document.getElementById('website').value;
       var blog =      document.getElementById('blog').value;
-      alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog);
+      //alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog);
       
       //alert('call Submit Function'+firstName);
       var tempval = 0;
@@ -173,7 +173,7 @@ eventList: function(resEvent) {
                   "blog"      : blog
                 }
               }, function(resUser) {
-                alert('Cloud call msg: '+ JSON.stringify(resUser));
+                //alert('Cloud call msg: '+ JSON.stringify(resUser));
                 return 3;                        
               },
               function(msg, err) {
