@@ -9,8 +9,10 @@ function bindEvents(){
 		//register.init();
 		var rt;
 		rt = register.submitData();
-    if(rt === true)
-      register.init(); 
+    if(rt == true) {
+      alert('its true');
+      register.init();
+     } 
       		
 		//userAuth.init();
 		//register.init();

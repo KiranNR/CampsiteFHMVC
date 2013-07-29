@@ -78,7 +78,7 @@ eventList: function(resEvent) {
       var listObj = resEvent.say;
       //alert('Got response from cloud IN Register:' + JSON.stringify(listObj));
       
-      var parsedJSON = evil('('+resEvent.say+')');
+      var parsedJSON = eval('('+resEvent.say+')');
      //alert('Evet Data'+parsedJSON); 
       //alert('List object count is'+parsedJSON.list[0].fields.name);
       var eventName = parsedJSON.list[0].fields.name;
@@ -174,7 +174,7 @@ eventList: function(resEvent) {
                 }
               }, function(resUser) {
                 alert('Cloud call msg: '+ JSON.stringify(resUser));
-                        
+                return true;                        
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
