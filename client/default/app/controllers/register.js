@@ -177,8 +177,8 @@ eventList: function(resEvent) {
                   "blog"      : blog
                 }
               }, function(resUser) {
-                retVal = 3;
-                alert(JSON.stringify(resUser));                                        
+                //retVal = 3;
+                //alert(JSON.stringify(resUser));                                        
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
@@ -190,7 +190,7 @@ eventList: function(resEvent) {
         //alert("please Insert Value");
         return false;
       }
-      alert("Rturn value"+retVal)
+        alert("Data is Submitted Sucessfully")
         return retVal;
         
       
