@@ -128,6 +128,9 @@ exports.insertUser = function(params, callback) {
 var tempval = 0;
 if(params.first_name === '' || params.last_name === '' || params.address === '' || params.city === '' || params.state === '' || params.zipcode === '' || params.country === '' || params.job_title === '' || params.company === '' ||  params.website === '' || params.blog === '')
 {
+  tempval = 2;
+}
+else {
   tempval = 1;
 }
 
