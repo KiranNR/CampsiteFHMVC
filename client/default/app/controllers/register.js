@@ -188,7 +188,16 @@ eventList: function(resEvent) {
       
       
       //alert('call Submit Function'+firstName);
-      
+      var tempval = 0;
+      if(firstName === '' || lastName === '' || address === '' || city === '' || state === '' || zipcode === '' || country === '' || job_title === '' || company === '' ||  website === '' || blog === '')
+      {
+        tempval = 2;
+      }
+      else   {
+        tempval = 1;
+      }
+
+      if(tempval ===1 ) {
       $fh.act({
                 "act": "insertUser",
                 // my cloud function name to call
@@ -206,7 +215,7 @@ eventList: function(resEvent) {
                   "blog":blog
                 }
               }, function(resUser) {
-                alert('Cloud call  Sucess '+ JSON.stringify(resUser));
+                alert('Cloud call msg: '+ JSON.stringify(resUser));
                         
               },
               function(msg, err) {
@@ -214,6 +223,11 @@ eventList: function(resEvent) {
                 alert('Cloud call not Sucess with Error:' + msg + '. Error properties:' + JSON.stringify(err));
       });
       
+      }
+      else {
+        //alert("please Insert Value");
+        return false;
+      }
       return true;
       
     /*  $fh.db({
