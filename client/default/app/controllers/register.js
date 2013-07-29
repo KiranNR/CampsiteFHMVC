@@ -175,8 +175,8 @@ eventList: function(resEvent) {
                   "blog"      : blog
                 }
               }, function(resUser) {
-                alert(JSON.stringify(resUser));
-                retVal = 3;                        
+                retVal = 3;
+                alert(JSON.stringify(resUser));                                        
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
@@ -188,7 +188,7 @@ eventList: function(resEvent) {
         //alert("please Insert Value");
         return false;
       }
-      alert("Rturn value"+retVal)
+      //alert("Rturn value"+retVal)
       return retVal;
       
     /*  $fh.db({
