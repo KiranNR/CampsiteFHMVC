@@ -128,7 +128,8 @@ eventList: function(resEvent) {
 	},
 	
 	submitData : function() {  
-            
+      alert("In Submit Data Function:");           
+       
       var firstName = document.getElementById('first_name').value;
       var lastName =  document.getElementById('last_name').value;
       
@@ -151,7 +152,7 @@ eventList: function(resEvent) {
         tempval = 2;
       }
       else   {
-        alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog);         
+        alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog+"Temp Value::"+tempval);         
         tempval = 1;
       }
 
