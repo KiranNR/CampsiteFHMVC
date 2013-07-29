@@ -8,13 +8,9 @@ function bindEvents(){
 		//alert("submituserclick");
 		//register.init();
 		var rt;
-		alert("Before Submit Data called");
+		//alert("Before Submit Data called");
 		rt = register.submitData();
-		alert('aftersubmitdata cllaed RT VALUE IS'+rt);
-    if(rt == 3) {
-      alert('IF Value is True Call register.init');
-      register.init();
-     } 
+		 
       		
 		//userAuth.init();
 		//register.init();

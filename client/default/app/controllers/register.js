@@ -128,7 +128,7 @@ eventList: function(resEvent) {
 	},
 	
 	submitData : function() {  
-      alert("In Submit Data Function:");           
+      //alert("In Submit Data Function:");           
        
       var firstName = document.getElementById('first_name').value;
       var lastName =  document.getElementById('last_name').value;
@@ -147,12 +147,13 @@ eventList: function(resEvent) {
       
       //alert('call Submit Function'+firstName);
       var tempval = 0;
+      var retVal = 0;
       if(firstName === '' || lastName === '' || address === '' || city === '' || state === '' || zipcode === '' || country === '' || job_title === '' || company === '' ||  website === '' || blog === '')
       {
         tempval = 2;
       }
       else   {
-        alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog+"Temp Value::"+tempval);         
+        //alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog+"Temp Value::"+tempval);         
         tempval = 1;
       }
 
@@ -175,7 +176,7 @@ eventList: function(resEvent) {
                 }
               }, function(resUser) {
                 alert(JSON.stringify(resUser));
-                return 3;                        
+                retVal = 3;                        
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
@@ -187,8 +188,8 @@ eventList: function(resEvent) {
         //alert("please Insert Value");
         return false;
       }
-      
-      return true;
+      alert("Rturn value"+retVal)
+      return retVal;
       
     /*  $fh.db({
   "act": "create",
