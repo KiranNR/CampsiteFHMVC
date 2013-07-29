@@ -185,7 +185,7 @@ eventList: function(resEvent) {
       
       var website =   document.getElementById('website').value;
       var blog =      document.getElementById('blog').value;
-      
+      alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog);
       
       //alert('call Submit Function'+firstName);
       var tempval = 0;
@@ -204,15 +204,15 @@ eventList: function(resEvent) {
                 "req": {
                   "first_name": firstName, // send this value to the cloud
                   "last_name" : lastName,
-                  "address" : address,
-                  "city" : city,
-                  "state" : state,
-                  "zipcode" : zipcode,
-                  "country" : country,
+                  "address"   : address,
+                  "city"      : city,
+                  "state"     : state,
+                  "zipcode"   : zipcode,
+                  "country"   : country,
                   "job_title" : job_title,
-                  "company" : company,                                   
-                  "website" : website,
-                  "blog":blog
+                  "company"   : company,                                   
+                  "website"   : website,
+                  "blog"      : blog
                 }
               }, function(resUser) {
                 alert('Cloud call msg: '+ JSON.stringify(resUser));
