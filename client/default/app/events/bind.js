@@ -9,7 +9,7 @@ function bindEvents(){
 		//register.init();
 		var rt;
 		rt = register.submitData();
-    if(rt == true) {
+    if(rt === 3) {
       alert('its true');
       register.init();
      } 
