@@ -56,8 +56,10 @@ userListing: function (resUser) {
         for(i=0;i<userCount;i++) {
             firstName = parsedJSONUser.list[i].fields.first_name;
             lastName = parsedJSONUser.list[i].fields.last_name;
+            
             website = parsedJSONUser.list[i].fields.website;
             blog =  parsedJSONUser.list[i].fields.blog;
+            
           
             html += '<div> <a href="#" target="_blank"> <h3>'+firstName +'&nbsp;'+lastName + '</h3></a>';
             html += '<p> Website:<a href="'+website+'"> '+website+'</a>';
@@ -171,8 +173,20 @@ eventList: function(resEvent) {
             
       var firstName = document.getElementById('first_name').value;
       var lastName =  document.getElementById('last_name').value;
+      
+      var address = document.getElementById('address').value;
+      var city =  document.getElementById('city').value;      
+      var state = document.getElementById('state').value;
+      var zipcode = document.getElementById('zipcode').value;      
+      var country =  document.getElementById('country').value;
+      var job_title = document.getElementById('job_title').value;      
+      var company =  document.getElementById('company').value;
+      
+      
       var website =   document.getElementById('website').value;
       var blog =      document.getElementById('blog').value;
+      
+      
       //alert('call Submit Function'+firstName);
       
       $fh.act({
@@ -181,6 +195,13 @@ eventList: function(resEvent) {
                 "req": {
                   "first_name": firstName, // send this value to the cloud
                   "last_name" : lastName,
+                  "address" : address,
+                  "city" : city,
+                  "state" : state,
+                  "zipcode" : zipcode,
+                  "country" : country,
+                  "job_title" : job_title,
+                  "company" : company,                                   
                   "website" : website,
                   "blog":blog
                 }

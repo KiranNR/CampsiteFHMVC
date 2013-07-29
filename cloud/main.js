@@ -125,30 +125,46 @@ $fh.db({
 
 exports.insertUser = function(params, callback) {
 
-$fh.db({
-  "act": "create",
-  "type": "user",
-  "fields" : {
-    "first_name" : params.first_name,
-    "last_name"  : params.last_name,
-    "website"    : params.website,
-    "blog"       : params.blog
-  }
-  
-}, function(err, data) {
-  if (err) {
-    console.log("Insert Log Error " + err);
+var tempval = 0;
+if(params.first_name == '' || params.last_name == '' || params.website == '' || params.blog == '')
+{
+  tempval = 1;
+}
+
+if(tempval === 1) {
+  $fh.db({
+    "act": "create",
+    "type": "user",
+    "fields" : {
+      "first_name" : params.first_name,
+      "last_name"  : params.last_name,
+      "address" : params.address,
+      "city" : params.city,
+      "state" : params.state,
+      "zipcode" : params.zipcode,
+      "country" : params.country,
+      "job_title" : params.job_title,
+      "company" : params.company,
+      "website"    : params.website,
+      "blog"       : params.blog
+    }
+    
+  }, function(err, data) {
+    if (err) {
+      console.log("Insert Log Error " + err);
+        return callback(null, {
+            say: 'Error For Create User'
+      });
+    } else {  
+      // if list is Empty Create New record
+      console.log('User List Insert data:'+data.count);
       return callback(null, {
-          say: 'Error For Creat User'+JSON.stringify(data)
-    });
-  } else {  
-    // if list is Empty Create New record
-    console.log('User List Insert data:'+data.count);
-    return callback(null, {
-          say: 'User Create Insert Data'+JSON.stringify(data)
-    });      
-  }
-});
+            say: 'User Create Insert Data'+JSON.stringify(data)
+      });      
+    }
+  });
+
+}
 
 
 };
