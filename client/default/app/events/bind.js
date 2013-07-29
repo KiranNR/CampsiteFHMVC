@@ -9,7 +9,9 @@ function bindEvents(){
 		//register.init();
 		var rt;
 		rt = register.submitData();
-		
+    if(rt === true)
+      register.init(); 
+      		
 		//userAuth.init();
 		//register.init();
 		

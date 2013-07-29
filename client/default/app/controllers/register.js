@@ -4,7 +4,7 @@ var register = {
 init : function (){
       // Display Event on HomePage
       $fh.act({
-        "act": "eventList",
+        "act": "eventList"
         
       }, function(resEvent) {
             // Cloud call was successful. Alert the response
@@ -17,7 +17,7 @@ init : function (){
         
         // Display User List On HomePage
         $fh.act({
-        "act": "userList",
+        "act": "userList"
       }, function(resUser) {
             // Cloud call was successful. Alert the response
            // alert('Cloud call Sucess for userList with error:' + JSON.stringify(resUser));
@@ -78,7 +78,7 @@ eventList: function(resEvent) {
       var listObj = resEvent.say;
       //alert('Got response from cloud IN Register:' + JSON.stringify(listObj));
       
-      var parsedJSON = eval('('+resEvent.say+')');
+      var parsedJSON = evil('('+resEvent.say+')');
      //alert('Evet Data'+parsedJSON); 
       //alert('List object count is'+parsedJSON.list[0].fields.name);
       var eventName = parsedJSON.list[0].fields.name;
@@ -95,49 +95,7 @@ eventList: function(resEvent) {
       
       return ;
     },
-
-  handleSyncNotifications: function(notification) {
-      if ('sync_complete' == notification.code) {
-      alert('calledsyncnotiin IF');
-    // We are interested in sync_complete notifications as there may be changes to the dataset
-    if (localDatasetHash != notification.uid) {
-      // The dataset hash received in the uid parameter is different to the one 
-      // we have stored. This means that there has been a change in the dataset 
-      // so we should invoke the list operation.
-      datasetHash = notification.uid;
-      sync.doList(datasetId, self.handleListSuccess, self.handleListFailure);
-    }
-  }
-      },
-      
  
-    handleListSuccess: function(res) {
-      var tableData = [];
-      // Iterate over the dataset to create a record structure which is suitable for the jQuery Data table
-      // we are using to display the data (i.e a 2d array)
-    
-      var controls = [];
-      controls.push('<button class="btn edit btn-small"><i class="icon-pencil"></i> Edit</button>&nbsp;');
-      controls.push('<button class="btn delete btn-small"><i class="icon-trash"></i> Delete</button>&nbsp;');
-
-      for( i in res ) {
-        var row = [];
-        var rec = res[i];
-        row.push(i);
-        row.push(rec.data.name);
-        row.push(moment(rec.data.created).format('YYYY-MM-DD HH:mm:ss'));
-        row.push(controls.join(""));
-        tableData.push(row);
-      }
-
-      //self.reloadTable(tableData);
-    },
-
-    handleListFailure: function(code, msg) {
-      alert('An error occured while listing data : (' + code + ') ' + msg);
-    },
-     
-  
 	display : function() {
 
 		//var username, pwd, usernameElement, passwordElement;
@@ -228,6 +186,7 @@ eventList: function(resEvent) {
         //alert("please Insert Value");
         return false;
       }
+      
       return true;
       
     /*  $fh.db({
@@ -265,4 +224,4 @@ eventList: function(resEvent) {
 	 alert('called');
 		changeView("mainPage");
 	}
-}
+};
