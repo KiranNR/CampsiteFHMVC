@@ -10,7 +10,7 @@ function bindEvents(){
 		var rt;
 		alert("Before Submit Data called");
 		rt = register.submitData();
-		alert('aftersubmitdata cllaed');
+		alert('aftersubmitdata cllaed RT VALUE IS'+rt);
     if(rt == 3) {
       alert('IF Value is True Call register.init');
       register.init();
