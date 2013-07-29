@@ -178,7 +178,8 @@ eventList: function(resEvent) {
                 }
               }, function(resUser) {
                 //retVal = 3;
-                //alert(JSON.stringify(resUser));                                        
+                alert(JSON.stringify(resUser));      
+                                                  
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
