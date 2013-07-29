@@ -143,7 +143,6 @@ eventList: function(resEvent) {
       
       var website =   document.getElementById('website').value;
       var blog =      document.getElementById('blog').value;
-      alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog);
       
       //alert('call Submit Function'+firstName);
       var tempval = 0;
@@ -152,6 +151,7 @@ eventList: function(resEvent) {
         tempval = 2;
       }
       else   {
+        alert(" -->"+firstName+":"+lastName+":"+address+":"+city+":"+state+":"+zipcode+":"+country+":"+job_title+":"+company+":"+website+":"+blog);         
         tempval = 1;
       }
 
