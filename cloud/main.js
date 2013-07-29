@@ -146,7 +146,7 @@ exports.insertUser = function(params, callback) {
     if (err) {
       console.log("Insert Log Error " + err);
         return callback(null, {
-            say: 'Error For Create User'
+            say: 'Error For Create User'+err
       });
     } else {  
       // if list is Empty Create New record
