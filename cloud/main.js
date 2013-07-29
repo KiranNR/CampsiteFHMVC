@@ -152,7 +152,7 @@ exports.insertUser = function(params, callback) {
       // if list is Empty Create New record
       console.log('User List Insert data:'+data.count);
       return callback(null, {
-            say: 'Data Inserted Sucessfully'+JSON.stringify(data);
+            say: JSON.stringify(data)
       });      
     }
   });
