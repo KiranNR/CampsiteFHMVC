@@ -173,7 +173,7 @@ eventList: function(resEvent) {
                   "blog"      : blog
                 }
               }, function(resUser) {
-                //alert('Cloud call msg: '+ JSON.stringify(resUser));
+                alert(JSON.stringify(resUser));
                 return 3;                        
               },
               function(msg, err) {

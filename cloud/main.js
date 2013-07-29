@@ -105,7 +105,7 @@ $fh.db({
 exports.userList = function(params, callback) {
 
 $fh.db({
-  "act": "deleteall",
+  "act": "list",
   "type": "user"
 
 }, function(err, data) {
@@ -152,7 +152,7 @@ exports.insertUser = function(params, callback) {
       // if list is Empty Create New record
       console.log('User List Insert data:'+data.count);
       return callback(null, {
-            say: 'User Create Insert Data'+JSON.stringify(data)
+            say: 'Data Inserted Sucessfully'
       });      
     }
   });
