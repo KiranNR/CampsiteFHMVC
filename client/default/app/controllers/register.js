@@ -165,12 +165,13 @@ eventList: function(resEvent) {
                 }
               }, function(resUser) {
                 //retVal = 3;
-                alert(JSON.stringify(resUser));         
-                return retVal;                                               
+                alert(JSON.stringify(resUser));      
+                retVal = false;   
+                //return retVal;                                               
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
-                //alert('Cloud call not Sucess with Error:' + msg + '. Error properties:' + JSON.stringify(err));
+                alert('Cloud call not Sucess with Error:' + msg + '. Error properties:' + JSON.stringify(err));
       });
       
       }
