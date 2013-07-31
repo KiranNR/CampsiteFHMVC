@@ -14,13 +14,13 @@ init : function (){
             // An error occured during the cloud call. Alert some debugging information
             alert('Cloud call failed for EventList with error:' + msg + '. Error properties:' + JSON.stringify(err));
         });
-        
+           
         // Display User List On HomePage
         $fh.act({
         "act": "userList"
-      }, function(resUser) {
+        }, function(resUser) {
             // Cloud call was successful. Alert the response
-           // alert('Cloud call Sucess for userList with error:' + JSON.stringify(resUser));
+            //alert('Cloud call Sucess for userList :' + JSON.stringify(resUser));
             register.userListing(resUser);
          }, function(msg, err) {
             // An error occured during the cloud call. Alert some debugging information
@@ -31,42 +31,32 @@ init : function (){
 },
 
 userListing: function (resUser) {
-  
-      var listObj = resUser.say;
-      //alert('Got response from cloud for user IN Register:' + JSON.stringify(listObj));
       
-     // var parsedJSON = eval('('+resUser.say+')');
       var parsedJSONUser = eval('('+resUser.say+')');
      
-      //alert('Call User List'+parsedJSON);
-      // Nowe we have to generate Attendee List of User
-      //var parsedJSONUser = eval('('+resUser.say+')');
-      //alert('Json Data'+parsedJSONUser);
-      // User Data
       var firstName = '';
       var lastName = '';
       var website = '';
       var blog = '';
       
       var html = '';
-      var userCount = parsedJSONUser.count;
+      var userCount = parsedJSONUser.length;
       
       if(userCount > 0) {
         // Now fetch The Data 
-        for(i=0;i<userCount;i++) {
-            firstName = parsedJSONUser.list[i].fields.first_name;
-            lastName = parsedJSONUser.list[i].fields.last_name;
+          for(i=0;i<userCount;i++) {
+            firstName = parsedJSONUser[i].first_name;
+            lastName = parsedJSONUser[i].last_name;
+            website = parsedJSONUser[i].website;
+            blog =  parsedJSONUser[i].blog;
             
-            website = parsedJSONUser.list[i].fields.website;
-            blog =  parsedJSONUser.list[i].fields.blog;
-            
-          
             html += '<div> <a href="#" target="_blank"> <h3>'+firstName +'&nbsp;'+lastName + '</h3></a>';
             html += '<p> Website:<a href="'+website+'"> '+website+'</a>';
             html += '</p> <p> Blog: <a href="'+blog+'"> '+blog+'</a></p></div>';
              
         }
         document.getElementById('homepageUserListing').innerHTML = html;
+      
       }
       return true;
       
@@ -79,15 +69,12 @@ eventList: function(resEvent) {
       //alert('Got response from cloud IN Register:' + JSON.stringify(listObj));
       
       var parsedJSON = eval('('+resEvent.say+')');
-     //alert('Evet Data'+parsedJSON); 
-      //alert('List object count is'+parsedJSON.list[0].fields.name);
-      var eventName = parsedJSON.list[0].fields.name;
-      var eventDate = parsedJSON.list[0].fields.event_date;
-      var eventTime = parsedJSON.list[0].fields.event_time;
-      var eventLocation =  parsedJSON.list[0].fields.location;
+     
+      var eventName = parsedJSON[0].name;
+      var eventDate = parsedJSON[0].event_date;
+      var eventTime = parsedJSON[0].event_time;
+      var eventLocation =  parsedJSON[0].address+","+parsedJSON[0].city+","+parsedJSON[0].state+","+parsedJSON[0].country;
       
-      
-      //document.getElementById('event_data_name').innerHtml(name);
       document.getElementById('event_data_name').innerHTML= eventName;
       document.getElementById('event_data_eventDate').innerHTML= eventDate;
       document.getElementById('event_data_eventTime').innerHTML= eventTime;
@@ -178,8 +165,7 @@ eventList: function(resEvent) {
                 }
               }, function(resUser) {
                 //retVal = 3;
-                alert(JSON.stringify(resUser));      
-                                                  
+                alert(JSON.stringify(resUser));                                                        
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
