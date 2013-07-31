@@ -84,7 +84,7 @@ eventList: function(resEvent) {
     },
  
 	display : function() {
-
+    
 		//var username, pwd, usernameElement, passwordElement;
 		//define variables
 		//usernameElement = document.getElementById("username");
@@ -164,9 +164,9 @@ eventList: function(resEvent) {
                   "blog"      : blog
                 }
               }, function(resUser) {
-                //retVal = 3;
+                retVal = 3;
                 alert(JSON.stringify(resUser));         
-                return retVal;                                               
+                //return retVal;                                               
               },
               function(msg, err) {
                 // An error occured during the cloud call. Alert some debugging information
@@ -178,8 +178,8 @@ eventList: function(resEvent) {
         //alert("please Insert Value");
         return false;
       }
-        alert("Data is Submitted Sucessfully")
-        return retVal;
+        //alert("Data is Submitted Sucessfully")
+        //alert(retVal);
         
       
     /*  $fh.db({
