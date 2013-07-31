@@ -180,7 +180,7 @@ eventList: function(resEvent) {
       }
         alert("Data is Submitted Sucessfully")
         //alert(retVal);
-        
+        return retVal;
       
     /*  $fh.db({
   "act": "create",
