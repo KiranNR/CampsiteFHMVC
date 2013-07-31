@@ -179,7 +179,7 @@ eventList: function(resEvent) {
         //alert("please Insert Value");
         return false;
       }
-        if(retVal != 3)
+        
           alert("Data is Submitted Sucessfully")
         //alert(retVal);
         return retVal;
