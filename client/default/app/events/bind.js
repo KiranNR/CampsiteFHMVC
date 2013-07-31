@@ -1,6 +1,7 @@
 function bindEvents(){
 	$("#registerBtn").bind("click",function(){
 		//userAuth.login();
+		
 		register.display();
 	});
 	$("#submitUser").bind("click",function(){
@@ -10,7 +11,7 @@ function bindEvents(){
 		var rt;
 		//alert("Before Submit Data called");
 		rt = register.submitData();
-		 
+		alert("Return value in event"+rt); 
       		
 		//userAuth.init();
 		//register.init();
