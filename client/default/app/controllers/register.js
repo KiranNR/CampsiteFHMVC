@@ -166,7 +166,7 @@ eventList: function(resEvent) {
               }, function(resUser) {
                 //retVal = 3;
                 alert(JSON.stringify(resUser));      
-                retVal = false;   
+                retVal = 3;   
                 //return retVal;                                               
               },
               function(msg, err) {

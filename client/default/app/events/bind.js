@@ -12,7 +12,11 @@ function bindEvents(){
 		//alert("Before Submit Data called");
 		rt = register.submitData();
 		alert("Return value in event"+rt); 
-		return ;
+		if (rt ==3) {
+		alert("RR");
+    return ;
+		
+		}
       		
 		//userAuth.init();
 		//register.init();
