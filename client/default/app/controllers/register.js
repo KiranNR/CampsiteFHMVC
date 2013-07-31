@@ -178,7 +178,7 @@ eventList: function(resEvent) {
         //alert("please Insert Value");
         return false;
       }
-        alert("Data is Submitted Sucessfully")
+       // alert("Data is Submitted Sucessfully")
         return retVal;
         
       
