@@ -12,6 +12,7 @@ function bindEvents(){
 		//alert("Before Submit Data called");
 		rt = register.submitData();
 		alert("Return value in event"+rt); 
+		return ;
       		
 		//userAuth.init();
 		//register.init();
