@@ -28,7 +28,7 @@ connection.query("select * from event",
 }
 
 exports.userList = function(params,callback) {
-connection.query("select * from user",
+connection.query("select * from user ORDER by id DESC",
     function(err, results, fields) {
       //eventData = results;
       return callback(null, {
