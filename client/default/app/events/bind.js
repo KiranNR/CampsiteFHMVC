@@ -12,7 +12,7 @@ function bindEvents(){
 		//alert("Before Submit Data called");
 		rt = register.submitData();
 		//alert("Return value in event"+rt); 
-		if (rt ==3) {
+		if (rt == 3) {
 	
     return ;
 		
